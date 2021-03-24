@@ -1,0 +1,1 @@
+UPDATE `station_material` SET `Weight` = '2' WHERE `station_material`.`S_Id` = 1 AND `station_material`.`M_Id` = 1;

@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS `db_version` ( `Id` INT NOT NULL AUTO_INCREMENT , `Version` INT NOT NULL , `Date` DATETIME NOT NULL , PRIMARY KEY (`Id`)); 
+CREATE TABLE IF NOT EXISTS `container` (`Id` int(11) NOT NULL AUTO_INCREMENT,`Size` varchar(1) NOT NULL,PRIMARY KEY(`Id`));
+CREATE TABLE IF NOT EXISTS `customers` (`Id` int(11) NOT NULL AUTO_INCREMENT,`Name` varchar(100) NOT NULL,`Adr` varchar(100) NOT NULL,PRIMARY KEY (`Id`));
+CREATE TABLE IF NOT EXISTS `function` (`Id` int(11) NOT NULL AUTO_INCREMENT,`Name` varchar(25) NOT NULL,`Description` text NOT NULL,PRIMARY KEY (`Id`));
+CREATE TABLE IF NOT EXISTS `leaderboard` (`K_Id` int(11) NOT NULL AUTO_INCREMENT,`M_Id` int(11) NOT NULL,`Weight` int(11) NOT NULL,`Date` date NOT NULL,`Timeperiod` smallint(6) NOT NULL),PRIMARY KEY (`K_Id`,`M_Id`,`Timeperiod`);
+CREATE TABLE IF NOT EXISTS `material` (`Id` int(11) NOT NULL AUTO_INCREMENT,`Name` varchar(25) NOT NULL,PRIMARY KEY (`Id`));
+CREATE TABLE IF NOT EXISTS `smart_station` (`Id` int(11) NOT NULL AUTO_INCREMENT,`K_Id` int(11) NOT NULL,`Name` varchar(25) NOT NULL,PRIMARY KEY (`Id`));
+CREATE TABLE IF NOT EXISTS `container_function` (`C_Id` int(11) NOT NULL,`F_Id` int(11) NOT NULL,PRIMARY KEY (`C_Id`,`F_Id`));
+CREATE TABLE IF NOT EXISTS `station_container` (`S_Id` int(11) NOT NULL,`C_Id` int(11) NOT NULL,`Qnt` int(11) NOT NULL,PRIMARY KEY (`S_Id`,`C_Id`));
+CREATE TABLE IF NOT EXISTS `station_material` (`S_Id` int(11) NOT NULL,`M_Id` int(11) NOT NULL,`Weight` int(11) NOT NULL,`TimeStamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,PRIMARY KEY (`S_Id`,`M_Id`));
+
+INSERT INTO `container` (`Id`, `Size`) VALUES (NULL, 'L'),(NULL, 'M'),(NULL, 'S');
+INSERT INTO `customers` (`Id`, `Name`, `Adr`) VALUES (NULL, 'Galactic Empire', 'Death Star'),(NULL, 'Rebel Alliance', 'Echo Base'),(NULL, 'Rebel Alliance', 'Base One'),(NULL, 'Jedi Order', 'Jedi Temple');
+INSERT INTO `function` (`Id`, `Name`, `Description`) VALUES (NULL, 'Komprimering', 'Minskar Luft i Kärlen');
+INSERT INTO `leaderboard` (`K_Id`, `M_Id`, `Weight`, `Date`, `Timeperiod`) VALUES (1, 1, 12, '2018-09-21', 2),(1, 2, 15, '2018-09-21', 2),(1, 3, 30, '2018-09-21', 2),(1, 4, 5, '2018-09-21', 2),(1, 5, 6, '2018-09-21', 2),(1, 6, 4, '2018-09-21', 2),(2, 1, 13, '2018-09-21', 2),(2, 2, 20, '2018-09-21', 2),(2, 3, 7, '2018-09-21', 2),(2, 4, 6, '2018-09-21', 2),(3, 1, 0, '2018-09-21', 2),(3, 2, 0, '2018-09-21', 2),(3, 3, 0, '2018-09-21', 2),(3, 4, 0, '2018-09-21', 2);
+INSERT INTO `material` (`Id`, `Name`) VALUES (NULL, 'Papper'),(NULL, 'Mettall'),(NULL, 'Plast'),(NULL, 'Tidningar'),(NULL, 'O_Glas'),(NULL, 'F_Glas');
+INSERT INTO `smart_station` (`Id`, `K_Id`, `Name`) VALUES (NULL, 1, 'Death Station'),(NULL, 2, 'Base Station'),(NULL, 3, 'One Station');
+INSERT INTO `station_container` (`S_Id`, `C_Id`, `Qnt`) VALUES (1, 1, 6),(2, 1, 4),(3, 1, 4);
+INSERT INTO `station_material` (`S_Id`, `M_Id`, `Weight`, `TimeStamp`) VALUES (1, 1, 12, '2018-09-19 09:10:40'),(1, 2, 15, '2018-09-19 09:14:08'),(1, 3, 2, '2018-09-21 13:31:15'),(1, 4, 5, '2018-09-20 08:44:59'),(1, 5, 6, '2018-09-19 09:22:06'),(1, 6, 4, '2018-09-20 08:45:32'),(2, 1, 13, '2018-09-20 08:43:49'),(2, 2, 20, '2018-09-20 08:44:04'),(2, 3, 7, '2018-09-20 08:45:42'),(2, 4, 6, '2018-09-20 08:45:57'),(3, 1, 0, '2018-09-20 08:40:37'),(3, 2, 0, '2018-09-20 08:40:37'),(3, 3, 0, '2018-09-20 08:40:37'),(3, 4, 0, '2018-09-20 08:40:37');
+INSERT INTO `container_function` (`C_Id`, `F_Id`) VALUES(1, 1);

@@ -1,0 +1,34 @@
+INSERT INTO `container` (`Container_Id`, `Size`, `Description`) VALUES
+(NULL, 'L', 'Big'),
+(NULL, 'M', 'Medium'),
+(NULL, 'S', 'Small');
+
+INSERT INTO `customers` (`Customer_Id`, `Customer_Name`, `Address`) VALUES
+(NULL, 'Galactic Empire', 'Death Star'),
+(NULL, 'Rebel Alliance', 'Echo Base'),
+(NULL, 'Rebel Alliance', 'Base One'),
+(NULL, 'Jedi Order', 'Jedi Temple');
+
+INSERT INTO `function` (`Function_Id`, `Function_Name`, `Description`) VALUES
+(NULL, 'Komprimering', 'Minskar Luft i Kärlen');
+
+INSERT INTO `material` (`Material_Name`, `Description`) VALUES
+('Papper','Det är papper'),
+('Metall','Det är metall'),
+('Plast','Det är plast'),
+('Tidningar','Det är Tidningar'),
+('O_Glas','Det är ofärgat glass'),
+('F_Glas','Det är färgat glass');
+
+INSERT INTO `smart_station` (`Station_Id`, `Customer_Id`, `Station_Name`, `Position_Description`) VALUES
+(NULL, 1, 'Death Station', 'Kitchen'),
+(NULL, 2, 'Base Station', 'Kitchen'),
+(NULL, 3, 'One Station', 'Kitchen');
+
+INSERT INTO `Station_Container_Material`(`SCM_Id`, `Station_Id`, `Container_Id`, `Material_Name`, `Weight`, `Procent`, `Date`) VALUES 
+(NULL,1,1,'Plast',10.3,7,2018-10-16);
+
+INSERT INTO `weight_history` (`Weight_History_Id`,`Customer_Id`, `Material_Name`, `Weight`, `Date`) VALUES 
+(NULL,'1', 'Papper', '8.0', '2018-10-18');
+
+INSERT INTO `quiz`(`QuestionId`, `Answer1`, `Answer2`, `Answer3`, `Correct`, `Question`) VALUES (NULL,'I icke brännbart hos en återvinningscentral.','I brännbart.','I papper.','I papper.','Hur ska presentpapper återvinnas?'),(NULL,'I glas.','I brännbart.','På kommunens återvinningscentral.','På kommunens återvinningscentral.','Hur ska dricksglas återvinnas?'),(NULL,'Hos Apoteket.','I brännbart.','I plast.','I plast.','Hur ska en tom medicinkarta återvinnas?'),(NULL,'I brännbart','I grovsopor.','I plast.','I plast.','Vart ska frigolit återvinnas?'),(NULL,'I papper.','I plast.','I brännbart.','I brännbart.','Hur ska Post-it-lappar återvinnas?'),(NULL,'I glas.','I kommunens återvinningscentral.','I elavfall.','I elavfall.','Hur ska glödlampor återvinnas?'),(NULL,'I elavfall.','I plast.','I brännbart.','I brännbart.','Hur ska DVD- och CD skivor återvinnas?'),(NULL,'I brännbart.','I glas.','I icke brännbart hos en återvinningscentral.','I icke brännbart hos en återvinningscentral.','Hur ska porslin återvinnas?'),(NULL,'I metall.','I glas.','På kommunens återvinningscentral.','På kommunens återvinningscentral.','Hur ska en spegel återvinnas?'),(NULL,'I papper.','I plast.','I brännbart.','I brännbart.','Hur ska kuvert återvinnas?')

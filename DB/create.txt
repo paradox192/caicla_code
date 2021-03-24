@@ -1,0 +1,58 @@
+CREATE TABLE `Quiz` ( `QuestionId` INT NOT NULL AUTO_INCREMENT , `Answer1` VARCHAR(100) NOT NULL , `Answer2` VARCHAR(100) NOT NULL , `Answer3` VARCHAR(100) NOT NULL  , `Correct` VARCHAR(100) NOT NULL , `Question` VARCHAR(255) NOT NULL , PRIMARY KEY (`QuestionId`));
+
+CREATE TABLE `container` (
+  `Container_Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Size` varchar(2) NOT NULL,
+  `Description` varchar(100) NOT NULL,
+  PRIMARY KEY (`Container_Id`)
+);
+
+CREATE TABLE `customers` (
+  `Customer_Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Customer_Name` varchar(100) NOT NULL,
+  `Address` varchar(100) NOT NULL
+  PRIMARY KEY (`Customer_Id`)
+);
+
+CREATE TABLE `function` (
+  `Function_Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Function_Name` varchar(25) NOT NULL,
+  `Description` text NOT NULL
+  PRIMARY KEY (`Fun_Id`)
+);
+
+CREATE TABLE `Weight_History` (
+  `Weight_History_Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Customer_Id` int(11),
+  `Material_Name` varchar(25),
+  `Weight` FLOAT NOT NULL,
+  `Date` date NOT NULL,
+  PRIMARY KEY(`Weight_History_Id`)
+);
+
+CREATE TABLE `material` (
+  `Material_Name` varchar(25) NOT NULL,
+  `Description` varchar(100) NOT NULL,
+  PRIMARY KEY(`Material_Name`)
+);
+
+CREATE TABLE `smart_station` (
+  `Station_Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Customer_Id` int(11) NOT NULL,
+  `Station_Name` varchar(25) NOT NULL,
+  `Position_Description` varchar(100),
+  PRIMARY KEY(Station_Id)
+);
+
+CREATE TABLE `Station_Container_Material` (
+ `SCM_Id` INT NOT NULL AUTO_INCREMENT ,
+ `Station_Id` INT NOT NULL ,
+ `Container_Id` INT NOT NULL ,
+ `Material_Name` VARCHAR(25) NOT NULL ,
+ `Weight`  FLOAT NOT NULL ,
+ `Procent` INT NOT NULL ,
+ `Date` DATE NOT NULL ,
+ PRIMARY KEY (`SCM_Id`)
+);
+
+CREATE TABLE `quiz_leaderboard` (`LeaderId` INT NOT NULL AUTO_INCREMENT , `Nickname` VARCHAR(100) NOT NULL , `Score` INT NOT NULL , `Date` DATE NOT NULL, PRIMARY KEY (`LeaderId`) );

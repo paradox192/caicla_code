@@ -1,0 +1,170 @@
+<script type="text/javascript" >
+function hide_show_option() {
+    var charts = document.getElementsByClassName("chart");
+    var i;
+    for (i = 0; i < charts.length; i++) {
+        charts[i].style.display = 'none';
+    }
+    var show_id = document.getElementById("all");
+	show_id.style.display = 'block';
+	
+	var list = document.getElementById("size_select").addEventListener("change",function(){
+		show_id.style.display = 'none';
+		var select = document.getElementById("size_select");
+		show_id = document.getElementById(select.options[select.selectedIndex].value);
+		show_id.style.display = 'block';
+	});
+
+}
+window.onload = hide_show_option;
+</script>
+
+<script type="text/javascript" >
+function hide_show_option() {
+    var charts = document.getElementsByClassName("chart");
+    var i;
+    for (i = 0; i < charts.length; i++) {
+        charts[i].style.visibility = 'hidden';
+    }
+    var show_id = document.getElementById("all");
+	show_id.style.visibility = "visible";
+}
+
+
+window.onload = hide_show_option;
+</script>
+
+
+
+<script type="text/javascript" >
+function hide_class(sel) {
+    var charts = document.getElementsByClassName(sel);
+    var i;
+    for (i = 0; i < charts.length; i++) {
+        charts[i].style.visibility = 'hidden';
+    }
+    var show_id = document.getElementById("all");
+	show_id.style.visibility = "visible";
+}
+
+
+window.onload = hide_class("chart");
+</script>
+
+
+
+<script type="text/javascript">"
+function hide_show_options(){
+  //hides dropdown content
+  $('.size_chart').hide();
+  
+  //unhides first option content
+  $('#all').show();
+  
+  //listen to dropdown for change
+  $('#size_select').change(function(){
+    //rehide content on change
+    $('.size_chart').hide();
+    //unhides current item
+    $('#'+$(this).val()).show();
+ });
+ </script>
+
+
+
+
+<script type="text/javascript" >
+function next_back_display() {
+    var class_arr = document.getElementsByClassName('quests');
+    var i;
+    for (i = 0; i < class_arr.length; i++) {
+        class_arr[i].style.display = 'none';
+    }
+    var nr = 1;
+    var show_id = document.getElementById('question'+nr);
+	show_id.style.display = 'block';
+	
+	var next_btn = document.getElementById('next');
+	var back_btn = document.getElementById('back');
+	var fin_btn = document.getElementById('fin');
+	back_btn.style.display = 'none';
+	fin_btn.style.display = 'none';
+	window.alert(nr);
+	next_btn.addEventListener("click",function(){
+		show_id.style.display = 'none';
+		nr++;
+		show_id = document.getElementById('question'+nr);
+		show_id.style.display = 'block';
+		if (nr > 1) {
+			back_btn.style.display = 'block';
+		}else{
+			back_btn.style.display = 'none';
+		}
+		if (nr == 4) {
+			fin_btn.style.display = 'block';
+			next_btn.style.display = 'none';
+		}else{
+			next_btn.style.display = 'block';
+		}
+	});
+	back_btn.addEventListener("click",function(){
+		show_id.style.display = 'none';
+		nr--;
+		show_id = document.getElementById("question"+nr);
+		show_id.style.display = 'block';
+		if (nr > 1) {
+			back_btn.style.display = 'block';
+		}else{
+			back_btn.style.display = 'none';
+		}
+		if (nr == 4) {
+			fin_btn.style.display = 'block';
+			next_btn.style.display = 'none';
+		}else{
+			next_btn.style.display = 'block';
+		}
+	});
+}
+window.onload = next_back_display;
+</script>
+
+<script type="text/javascript" >
+function myfunction() {
+var class_hide = document.getElementsByClassName("hide");
+    var j;
+    for (j = 0; j < class_hide.length; j++) {
+        class_hide[j].style.display = 'none';
+    }
+        var list = document.getElementById("station");
+	var show_elm = document.getElementById(list.options[list.selectedIndex].value);    
+	show_elm.style.display = 'block';
+	
+	list.addEventListener("change",function(){
+		show_elm.style.display = 'none';
+		show_elm = document.getElementById(list.options[list.selectedIndex].value);    
+		show_elm.style.display = 'block';
+	});
+
+}
+window.onload = myfunction;
+</script>
+<script type="text/javascript" >
+function hide_show_option() {
+    var charts = document.getElementsByClassName("chart");
+    var i;
+    for (i = 0; i < charts.length; i++) {
+        charts[i].style.display = 'none';
+    }
+    var select = document.getElementById("size_select");
+	var show_id = document.getElementById(select.options[select.selectedIndex].value);    
+	show_id.style.display = 'block';
+	
+	select.addEventListener("change",function(){
+		show_id.style.display = 'none';
+		show_id = document.getElementById(select.options[select.selectedIndex].value);
+		show_id.style.display = 'block';
+	});
+
+}
+window.onload = hide_show_option;
+</script>

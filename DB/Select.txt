@@ -1,0 +1,6 @@
+SELECT Name, Id, M_Id FROM station_material, material WHERE material.Name = 'Papper' AND station_material.M_Id = material.Id
+"SELECT sm.M_Id, sm.S_Id FROM station_material AS sm, material AS ma,smart_station AS ss WHERE sm.M_Id = ma.Id AND ma.Name = '".$material."' AND sm.S_Id = ss.Id AND ss.Name = '".$station."'"
+"SELECT ma.Name,ss.Name, ma.Id AS 'material_id',ss.Id AS 'smart_station_id', sm.M_Id,sm.S_Id FROM station_material AS sm INNER JOIN material AS ma ON sm.M_Id = ma.Id AND ma.Name = 'Papper' INNER JOIN smart_station AS ss ON sm.S_Id = ss.Id AND ss.Name = 'Death Station'"
+"SELECT ma.Name,ss.Name, ma.Id AS 'material_id',ss.Id AS 'smart_station_id', sm.M_Id,sm.S_Id FROM station_material AS sm INNER JOIN material AS ma ON sm.M_Id = ma.Id AND ma.Name = 'Papper' INNER JOIN smart_station AS ss ON sm.S_Id = ss.Id AND ss.Name = 'Death Station'"
+
+SELECT SS.Name AS 'Station', K.Namn AS 'Company', M.Name AS 'Material', C.Size AS 'Container Size', F.Name AS 'Function' FROM smart_station AS SS INNER JOIN kunder AS K ON SS.K_Id=K.Id INNER JOIN station_material AS SM ON SS.Id=SM.S_Id INNER JOIN material AS M ON SM.M_Id=M.Id INNER JOIN station_container AS SC ON SS.Id=SC.S_Id INNER JOIN container AS C ON SC.C_Id=C.Id INNER JOIN container_function AS CF ON C.Id=CF.F_Id INNER JOIN function AS F ON CF.F_Id=F.Id
